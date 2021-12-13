@@ -13,6 +13,8 @@ The dataset is linked [here](https://www.kaggle.com/moltean/fruits). This datase
 # Proposed Method
 Among machine learning techniques, artificial neural networks are considered to be the most successful in the area of image recognition as well as classification. Consequently, our initial proposed method was to construct a convolutional neural network, which is able to take into account the structure of the image while processing them. We began with a CNN with 3 convolutional layers, each with 32 filters and a kernel size of 3, with max pooling layers in between. After flattening, we then connected it to another dense layer with 128 neurons before connecting to the output layer.
 
+![CNN Architecture](https://github.com/VSTADeepLearning/FruitVegetableDetection/blob/main/figures/cnnconfusion.png?raw=true)
+
 After the success of the initially proposed model, we continued our analysis with a model trained on top of the Inception v3 model. The output from Inception v3 was connected to our model by a global average pooling layer, before being connected to a dense layer with 1024 neurons, and then an output layer with 131 output neurons.
 
 As the image_dataset_from_directory function from keras.utils returns a BatchDataset, iterating over the dataset and manually appending true values while also appending the predicted class label is necessary for confusion metrics. This processing was done with both our custom model as well as the transfer learning model.
